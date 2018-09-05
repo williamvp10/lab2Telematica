@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab2telematica;
+package StopAndWait;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,7 +36,7 @@ public class UDPClient {
         //ArrayList<byte[]> data = new ArrayList<>();
         System.out.println("Enter no of frames to be sent:");
         int frames = sc.nextInt();
-        System.out.println("cant frames" + frames);
+        System.out.println("# frames" + frames);
         for (int i = 0; i <= frames;) {
 
             if (i == frames) {
@@ -49,13 +49,12 @@ public class UDPClient {
                 i++;
                 mensaje.cancelTimer();
                 mensaje.purgeTimer();
-                Thread.sleep(1000);
             } else {
 
             }
 
         }
-        enviar("exit");
+        //enviar("exit");
     }
 
     public String recibir() throws IOException {
@@ -69,7 +68,7 @@ public class UDPClient {
     public void enviar(String data) throws IOException {
         mensaje.setMensaje(data);
         mensaje.addtask(new Task(this));
-        System.out.println(" envio frame: " + mensaje.getMensaje());
+        System.out.println(" send frame: " + mensaje.getMensaje());
         DatagramPacket sendPacket = new DatagramPacket(data.getBytes(), data.getBytes().length, IPAddress, 9876);
         clientSocket.send(sendPacket);
     }

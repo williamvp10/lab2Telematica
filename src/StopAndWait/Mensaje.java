@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab2telematica;
+package StopAndWait;
 
 import java.util.Timer;
 
@@ -37,7 +37,7 @@ public class Mensaje {
     }
 
     public void addtask(Task task){
-        this.timer.schedule(task, 6000);
+        this.timer.schedule(task, 50);
     }
     
     public void purgeTimer(){
